@@ -13,9 +13,9 @@ Run the following in your project folder:
 This is example is meant for web dapps who would like to use Mweb3's convenience methods with MetriMask's RPC provider. MetriMask is a Metrix wallet [Chrome extension](https://chrome.google.com/webstore/detail/MetriMask/). More details about MetriMask [here](https://github.com/TheLindaProjectInc/MetriMask).
 
 ### 1. Construct Mweb3 instance
-If you have MetriMask installed, you will have a `window.qrypto` object injected in your browser tab. Pass that into Mweb3 as a parameter to set the provider.
+If you have MetriMask installed, you will have a `window.metrimask` object injected in your browser tab. Pass that into Mweb3 as a parameter to set the provider.
 ```
-const mweb3 = new Mweb3(window.qrypto.rpcProvider);
+const mweb3 = new Mweb3(window.metrimask.rpcProvider);
 ```
 
 ### 2. Construct Contract instance
@@ -33,7 +33,7 @@ To get the current logged in account in MetriMask, you will have to add an [Even
 ```
 let account;
 
-function onQryptoAcctChange(event) {
+function onMetriMaskAcctChange(event) {
   if (event.data.message && event.data.message.type == "ACCOUNT_CHANGED") {
     account = event.data.message.payload;
 
@@ -54,7 +54,7 @@ window.addEventListener('message', onMetriMaskAcctChange, false);
 ```
 
 ### 4. Execute sendtocontract
-The last piece is to execute a `sendtocontract` on your Contract instance. This will automatically show a Qrypto popup to confirm that you would like to send the transaction.
+The last piece is to execute a `sendtocontract` on your Contract instance. This will automatically show a MetriMask popup to confirm that you would like to send the transaction.
 ```
 // Does a sendtocontract call on a function called setResult(uint8)
 const tx = await contract.send('setResult', {
