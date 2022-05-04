@@ -12,7 +12,6 @@ module.exports = {
       "jsx": true
     }
   },
-  "ignorePatterns": ["**/*.tests.js"],
   "rules": {
     "class-methods-use-this": 0,
     "max-len": [2, {
