@@ -19,7 +19,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "bignumber.js": "^9.0.2",
-    "bn.js": "^4.11.8",
+    "bn.js": "^5.2.0",
     "bs58": "^5.0.0",
     "chai": "^4.1.2",
     "ethjs-abi": "^0.2.1",
